@@ -46,7 +46,8 @@ public class CreateAndIssueQrc20Flow implements ClientStartableFlow {
     @CordaInject
     UtxoLedgerService utxoLedgerService;
 
-    public CreateAndIssueQrc20Flow() {}
+    public CreateAndIssueQrc20Flow() {
+    }
 
     @Suspendable
     @Override
@@ -56,10 +57,10 @@ public class CreateAndIssueQrc20Flow implements ClientStartableFlow {
         CreateAndIssueQrc20Request request = requestBody.getRequestBodyAs(jsonMarshallingService, CreateAndIssueQrc20Request.class);
         MemberX500Name holderName = request.getHolder();
 
-        final NotaryInfo notaryInfo = notaryLookup.lookup(request.getNotary());
-        if (notaryInfo == null) {
-            throw new IllegalArgumentException("Notary " + request.getNotary() + " not found");
-        }
+        final NotaryInfo notaryInfo = notaryLookup.getNotaryServices()
+                .stream()
+                .findFirst()
+                .orElseThrow(RuntimeException::new);
 
         PublicKey issuer = memberLookup.myInfo().getLedgerKeys().get(0);
 
