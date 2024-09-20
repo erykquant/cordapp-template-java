@@ -16,4 +16,8 @@ public interface Qrc20Commands extends Command {
 
     class Burn implements Qrc20Commands {
     }
+
+    class Balance implements Qrc20Commands{
+
+    }
 }

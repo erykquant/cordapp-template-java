@@ -12,5 +12,8 @@ public class Qrc20Contract implements Contract {
             throw new IllegalArgumentException("No single command provided");
         }
         final Command command = transaction.getCommands().get(0);
+        // TODO
+        //  here we would validate e.g. if only issuer can remint, if holder has enough to burn, etc.
+        //  will skip validations for now
     }
 }

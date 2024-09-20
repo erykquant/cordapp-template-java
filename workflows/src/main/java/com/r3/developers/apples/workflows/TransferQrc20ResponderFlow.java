@@ -9,8 +9,8 @@ import net.corda.v5.ledger.utxo.FinalizationResult;
 import net.corda.v5.ledger.utxo.UtxoLedgerService;
 import org.jetbrains.annotations.NotNull;
 
-@InitiatedBy(protocol = "create-and-issue-qrc20")
-public class CreateAndIssueQrc20ResponderFlow implements ResponderFlow {
+@InitiatedBy(protocol = "transfer-qrc20")
+public class TransferQrc20ResponderFlow implements ResponderFlow {
 
     @CordaInject
     public UtxoLedgerService utxoLedgerService;
@@ -29,6 +29,5 @@ public class CreateAndIssueQrc20ResponderFlow implements ResponderFlow {
              * we will not sign the transaction - even if the transaction and its signatures are contractually valid.
              */
         });
-
     }
 }

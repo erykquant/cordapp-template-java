@@ -2,6 +2,7 @@ package com.r3.developers.apples.states;
 
 import com.r3.developers.apples.contracts.Qrc20Contract;
 import net.corda.v5.base.annotations.ConstructorForDeserialization;
+import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.ledger.utxo.BelongsToContract;
 import net.corda.v5.ledger.utxo.ContractState;
 
@@ -9,7 +10,9 @@ import java.security.PublicKey;
 import java.util.List;
 import java.util.UUID;
 
+@SuppressWarnings("ALL")
 @BelongsToContract(Qrc20Contract.class)
+@CordaSerializable
 public class Qrc20State implements ContractState {
     private UUID id;
     private PublicKey issuer;
