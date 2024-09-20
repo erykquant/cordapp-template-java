@@ -1,19 +1,17 @@
-package com.r3.developers.apples.workflows;
+package com.r3.developers.qrc20.workflows.balance;
 
 import net.corda.v5.base.types.MemberX500Name;
 
-public class GetBalanceQrc20Request {
+@SuppressWarnings("unused")
+public class BalanceQrc20Request {
 
     private MemberX500Name holder;
     private String symbol;
 
-    // The JSON Marshalling Service, which handles serialisation, needs this constructor.
-    public GetBalanceQrc20Request() {
+    public BalanceQrc20Request() {
     }
 
-    public GetBalanceQrc20Request(
-            MemberX500Name holder,
-            String symbol) {
+    public BalanceQrc20Request(final MemberX500Name holder, final String symbol) {
         this.holder = holder;
         this.symbol = symbol;
     }

@@ -1,25 +1,27 @@
-package com.r3.developers.apples.states;
+package com.r3.developers.qrc20.states;
 
-import com.r3.developers.apples.contracts.Qrc20Contract;
+import com.r3.developers.qrc20.contracts.Qrc20Contract;
 import net.corda.v5.base.annotations.ConstructorForDeserialization;
 import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.ledger.utxo.BelongsToContract;
 import net.corda.v5.ledger.utxo.ContractState;
+import org.jetbrains.annotations.NotNull;
 
 import java.security.PublicKey;
 import java.util.List;
 import java.util.UUID;
 
-@SuppressWarnings("ALL")
+
+@SuppressWarnings("ClassCanBeRecord")
 @BelongsToContract(Qrc20Contract.class)
 @CordaSerializable
 public class Qrc20State implements ContractState {
-    private UUID id;
-    private PublicKey issuer;
-    private PublicKey holder;
-    private String symbol;
-    private int supply;
-    private List<PublicKey> participants;
+    private final UUID id;
+    private final PublicKey issuer;
+    private final PublicKey holder;
+    private final String symbol;
+    private final int supply;
+    private final List<PublicKey> participants;
 
     @ConstructorForDeserialization
     public Qrc20State(final UUID id,
@@ -36,6 +38,7 @@ public class Qrc20State implements ContractState {
         this.participants = participants;
     }
 
+    @NotNull
     @Override
     public List<PublicKey> getParticipants() {
         return participants;
