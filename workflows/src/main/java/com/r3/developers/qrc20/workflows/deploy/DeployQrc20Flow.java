@@ -83,7 +83,7 @@ public class DeployQrc20Flow implements ClientStartableFlow {
 
         try {
             utxoLedgerService.finalize(transaction, List.of(session));
-            return qrc20.getId().toString();
+            return qrc20.toString();
         } catch (Exception e) {
             return String.format("Flow failed, message: %s", e.getMessage());
         }

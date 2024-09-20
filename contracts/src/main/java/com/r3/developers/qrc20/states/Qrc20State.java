@@ -63,4 +63,13 @@ public class Qrc20State implements ContractState {
     public int getSupply() {
         return this.supply;
     }
+
+    @Override
+    public String toString() {
+        return "Qrc20State{"
+                + "id=" + id
+                + ",symbol='" + symbol
+                + ",supply=" + supply
+                + "}";
+    }
 }

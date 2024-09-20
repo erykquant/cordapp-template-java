@@ -111,7 +111,7 @@ public class BurnQrc20Flow implements ClientStartableFlow {
                 .addOutputStates(output)
                 .addCommand(new Qrc20Commands.Burn())
                 .setTimeWindowUntil(Instant.now().plus(1, ChronoUnit.DAYS))
-                .addSignatories(List.of(callerKey, callerKey))
+                .addSignatories(List.of(callerKey))
                 .toSignedTransaction();
 
         final var session = flowMessaging.initiateFlow(holderName);
